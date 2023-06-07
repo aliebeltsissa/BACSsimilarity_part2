@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BACS Similarity Experiment</title>
+    <title>BACS Similarity Experiment (part 2)</title>
     <!-- Importing jsPsych & plugins -->
     <script src="lib/vendors/jspsych-7.1.2/jspsych.js"></script>
     <script src="lib/vendors/jspsych-7.1.2/plugin-html-keyboard-response.js"></script>
@@ -164,8 +164,7 @@
         var html = `<div style="width:500px;"><p style="font-size: 30px">How similar are these two characters?</p>
           <div style="width:240px; float: left;">
           <p style="font-size: 80px; font-family: BACS">`+ set[i][0] +`</p></div><div style="width:240px; float: right;">
-          <p style="font-size: 80px; font-family: BACS">`+ set[i][1] +`</p></div></div>
-          <p style="font-size : 15px;">Instead of dragging the slider, you can click any point on the slider to make your selection.</p>`;
+          <p style="font-size: 80px; font-family: BACS">`+ set[i][1] +`</p></div></div>`;
         var pairs_html_dict = {html: html, chara1: set[i][0], chara2: set[i][1]};
         trials_html_block.push(pairs_html_dict)
       };
@@ -184,6 +183,7 @@
     var similarity_trial = { // defines the parameters for each trial
       type: jsPsychHtmlSliderResponse,
       stimulus: jsPsych.timelineVariable('html'),
+      prompt: `<p style="font-size : 15px;">Click any point on the slider to make your selection.</p>`
       min: 0,
       max: 100,
       slider_start: 50,
