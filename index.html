@@ -31,13 +31,10 @@
   <script>
     /* ========== INITIALISATION ========== */
     var jsPsych = initJsPsych({
-      show_progress_bar: true,
       on_finish: function() {
         jsPsych.data.displayData(); // when all trials finished, display data -- can probably remove this for actually running
-      };
-      function() {
-        window.location = "https://app.prolific.co/submissions/complete?cc=XXXXXXX"
-      } // redirect Prolific participants to completed submission page -- CHANGE THIS LINK
+        window.location = "https://app.prolific.co/submissions/complete?cc=XXXXXXX" // redirect Prolific participants to completed submission page -- CHANGE THIS LINK
+      }
     });
 
     // capture info from Prolific
@@ -51,14 +48,15 @@
       session_id: session_id
     });
     
+    var timeline = [];
+
     /* init connection with pavlovia.org */
     var pavlovia_init = {
       type: jsPsychPavlovia,
       command: "init"
     };
     timeline.push(pavlovia_init);
-    
-    var timeline = [];
+
 
     /* ========== STIMULI GENERATION ========== */
     var characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Y', 'Z', 'a', 'b', 'c', 'd', 'g', 'h', 'i', 'k', 'l', 'm', 'o', 'r', 't', 'u', 'v', 'y']; // BACS characters used in affix experiment
