@@ -34,7 +34,7 @@
     var jsPsych = initJsPsych({
       show_progress_bar: true,
       on_finish: function() {
-        window.location = "https://app.prolific.co/submissions/complete?cc=XXXXXXX" // redirect Prolific participants to completed submission page -- CHANGE THIS LINK
+        window.location = "https://app.prolific.co/submissions/complete?cc=BACS1SEpart22023" // redirect Prolific participants to completed submission page
       }
     });
 
@@ -187,7 +187,7 @@
           <div style="width:240px; float: left;">
           <p style="font-size: 80px; font-family: BACS">`+ set[i][0] +`</p></div><div style="width:240px; float: right;">
           <p style="font-size: 80px; font-family: BACS">`+ set[i][1] +`</p></div></div>`;
-        var pairs_html_dict = {html: html, chara1: set[i][0], chara2: set[i][1]};
+        var pairs_html_dict = {html: html, chara1: set[i][0], chara2: set[i][1], set: (m+1), trialn: (i+1)};
         trials_html_block.push(pairs_html_dict)
       };
       big_html.push({
@@ -212,6 +212,8 @@
       require_movement: true,
       labels: ['0', '1'],
       data: {
+        set: jsPsych.timelineVariable('set'),
+        trialn: jsPsych.timelineVariable('trialn'),
         character1: jsPsych.timelineVariable('chara1'),
         character2: jsPsych.timelineVariable('chara2')
       }
